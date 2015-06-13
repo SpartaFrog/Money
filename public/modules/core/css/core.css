@@ -1,3 +1,65 @@
+html, body {
+	font-family: 'Roboto', sans-serif;
+
+	color: #000000;
+	opacity: 87%;
+
+	background-color: #f9f9f9;
+}
+
+.container-header{
+	width: auto;
+	padding: 0 50px;
+}
+
+/*** Navigation Bar 
+************************************************/
+.navbar{
+	/* Structure */
+	min-height: 64px;
+
+	/* Display */
+  	box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+
+	/* Colors */
+	background: #795548;
+}
+
+.navbar-brand,
+.navbar-brand:hover,
+.navbar-brand:active,
+.navbar-brand:focus{
+	/* Structure */
+	padding: 0;
+	line-height: 64px;
+	font-size: 24px;
+
+	/* Colors */
+	color: #ffffff;
+}
+
+.navbar-nav > li > a{
+	/* Structure */
+	padding: 0 15px;
+	line-height: 64px;
+	font-size: 18px;
+
+	/* Colors */
+	color: #ffffff;
+}
+
+.navbar-nav > li > a:hover,
+.navbar-nav > li > a:active,
+.navbar-nav > li > a:focus{
+	/* Colors */
+	background-color: #8D6E63;
+}
+
+
+
+
+
+
 .content {
 	margin-top: 50px;
 }
