@@ -1,6 +1,17 @@
 'use strict';
 
 /**
+ * Get the correct field name message from
+ */
+ var getCorrectFieldName = function(fieldName){
+	if(fieldName === 'username'){
+		return 'Nombre de usuario';
+	}
+
+	return fieldName;
+ };
+
+/**
  * Get unique error field name
  */
 var getUniqueErrorMessage = function(err) {
@@ -8,7 +19,10 @@ var getUniqueErrorMessage = function(err) {
 
 	try {
 		var fieldName = err.err.substring(err.err.lastIndexOf('.$') + 2, err.err.lastIndexOf('_1'));
-		output = fieldName.charAt(0).toUpperCase() + fieldName.slice(1) + ' already exists';
+
+		fieldName = getCorrectFieldName(fieldName);
+
+		output = fieldName.charAt(0).toUpperCase() + fieldName.slice(1) + ' ya existe';
 
 	} catch (ex) {
 		output = 'Unique field already exists';

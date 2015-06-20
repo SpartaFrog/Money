@@ -5,6 +5,7 @@
  */
 var _ = require('lodash'),
 	errorHandler = require('../errors.server.controller'),
+	emailHandler = require('../seed/emails.server.controller'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
 	User = mongoose.model('User');
@@ -24,6 +25,9 @@ exports.signup = function(req, res) {
 	user.provider = 'local';
 	user.displayName = user.firstName + ' ' + user.lastName;
 
+	// console.log(emailHandler);
+	// emailHandler.sendMail(user.displayName, user.email, 'Bienvenido a Sparta Money', 'Cool!');
+	
 	// Then save the user 
 	user.save(function(err) {
 		if (err) {
@@ -31,6 +35,8 @@ exports.signup = function(req, res) {
 				message: errorHandler.getErrorMessage(err)
 			});
 		} else {
+
+
 			// Remove sensitive data before login
 			user.password = undefined;
 			user.salt = undefined;
@@ -50,6 +56,16 @@ exports.signup = function(req, res) {
  * Signin after passport authentication
  */
 exports.signin = function(req, res, next) {
+	User.find({}, function(err, users) {
+		var userMap = {};
+
+		users.forEach(function(user) {
+			userMap[user._id] = user;
+		});
+
+		console.log(userMap); 
+	});
+
 	passport.authenticate('local', function(err, user, info) {
 		if (err || !user) {
 			res.status(400).send(info);

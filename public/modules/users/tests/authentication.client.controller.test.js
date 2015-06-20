@@ -105,14 +105,14 @@
 		it('$scope.signup() should fail to register with duplicate Username', function() {
 			// Test expected POST request
 			$httpBackend.when('POST', '/auth/signup').respond(400, {
-				'message': 'Username already exists'
+				'message': 'Username already exists 4'
 			});
 
 			scope.signup();
 			$httpBackend.flush();
 
 			// Test scope value
-			expect(scope.error).toBe('Username already exists');
+			expect(scope.error).toBe('Username already exists 6');
 		});
 	});
 }());

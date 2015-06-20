@@ -49,6 +49,7 @@ var UserSchema = new Schema({
 		match: [/.+\@.+\..+/, 'Please fill a valid email address']
 	},
 	username: {
+		displayName: 'Nombre de usuario',
 		type: String,
 		unique: 'testing error message',
 		required: 'Please fill in a username',
@@ -81,6 +82,10 @@ var UserSchema = new Schema({
 	created: {
 		type: Date,
 		default: Date.now
+	},
+	birthDate: {
+		type: Date,
+		required: 'BirthDate is required'
 	},
 	/* For reset password */
 	resetPasswordToken: {
@@ -127,7 +132,7 @@ UserSchema.methods.authenticate = function(password) {
 UserSchema.statics.findUniqueUsername = function(username, suffix, callback) {
 	var _this = this;
 	var possibleUsername = username + (suffix || '');
-
+	
 	_this.findOne({
 		username: possibleUsername
 	}, function(err, user) {
