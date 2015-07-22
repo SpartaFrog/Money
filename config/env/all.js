@@ -14,10 +14,11 @@ module.exports = {
 		lib: {
 			css: [
 				'public/lib/bootstrap/dist/css/bootstrap.css',
-				'public/lib/bootstrap/dist/css/bootstrap-theme.css',
+				'public/lib/angucomplete/angucomplete.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
+				'public/lib/angular/i18n/angular-locale_es-es.js',
 				'public/lib/angular-resource/angular-resource.js', 
 				'public/lib/angular-cookies/angular-cookies.js', 
 				'public/lib/angular-animate/angular-animate.js', 
@@ -25,7 +26,10 @@ module.exports = {
 				'public/lib/angular-sanitize/angular-sanitize.js', 
 				'public/lib/angular-ui-router/release/angular-ui-router.js',
 				'public/lib/angular-ui-utils/ui-utils.js',
-				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js'
+				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
+				'public/lib/moment/moment.js',
+				'public/lib/angular-moment/angular-moment.js',
+				'public/lib/angucomplete/angucomplete.js'
 			]
 		},
 		css: [

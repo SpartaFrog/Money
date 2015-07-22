@@ -1,8 +1,7 @@
 html, body {
 	font-family: 'Roboto', sans-serif;
 
-	color: #000000;
-	opacity: 0.87;
+	color: #212121;
 
 	background-color: #f9f9f9;
 }
@@ -95,9 +94,11 @@ label{
 .form-control:focus{
 	background: transparent;
 	border:none;
+	border-bottom: 2px solid  #B8B8B8;
 	border-bottom: 2px solid  rgba(0, 0, 0, .26);
 	border-radius: 0;
 	font-size: 18px;
+	padding: 0 6px;
 
 	-webkit-box-shadow: none;
 	-moz-box-shadow:none;
@@ -108,9 +109,32 @@ label{
 	transition: none; 
 }
 
+.form-control[disabled]{
+	background: inherit;
+}
+
 .form-control:focus, .form-control:active, .form-control.active{
 	/* Colors */
 	border-bottom-color: #0091EA;
+}
+
+.input-group-btn .btn{
+	padding: 6px 12px;
+	box-shadow: none;
+	background: transparent;
+	border-bottom: 2px solid  #B8B8B8;
+	border-bottom: 2px solid  rgba(0, 0, 0, .26);
+}
+
+.radio-inline{
+	font-size: 18px;
+	padding: 0 10px 0 25px;
+}
+
+.radio-inline input[type=radio]{
+	height: 18px;
+	width: 18px;
+	margin-left: -25px;
 }
 
 /*** Validation

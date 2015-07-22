@@ -26,7 +26,8 @@ exports.signup = function(req, res) {
 	user.displayName = user.firstName + ' ' + user.lastName;
 
 	// console.log(emailHandler);
-	// emailHandler.sendMail(user.displayName, user.email, 'Bienvenido a Sparta Money', 'Cool!');
+	
+	emailHandler.sendMail(user.displayName, user.email, 'Bienvenido a Sparta Money', 'Cool!');
 	
 	// Then save the user 
 	user.save(function(err) {

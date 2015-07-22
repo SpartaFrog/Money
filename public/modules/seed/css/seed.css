@@ -1,0 +1,50 @@
+/**
+* GK ComboPicker
+**/
+.gk-combopicker select{
+	display: none;
+}
+
+.gk-combopicker button:focus,
+.gk-combopicker button{
+	background-color: transparent;
+  	border: none;
+  	height: 100%;
+  	padding: auto 10px;
+  	cursor: default;
+
+  	outline: none;
+}
+
+.gk-combopicker .input-group-addon{
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	border-bottom: 2px solid #B8B8B8;
+  	border-bottom: 2px solid rgba(0, 0, 0, .26);
+}
+
+.gk-combopicker ul:focus,
+.gk-combopicker ul{
+	position: absolute;
+	top: 33px;
+  	left: 0;
+  	z-index: 100;
+  	width: 100%;
+	outline: none;
+  	list-style: none;
+	padding: 0;
+	margin: 0;
+	font-size: 18px;
+	max-height: 300px;
+  	overflow-y: auto;
+
+	background-color: #ffffff;
+	border: 1px solid #B8B8B8;
+}
+
+.gk-combopicker ul li{
+	margin-left: 8px;
+}
+
+  

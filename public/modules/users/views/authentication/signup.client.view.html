@@ -57,7 +57,7 @@
 			<div class="row">
 				<div class="col-md-6 form-group">
 					<label for="firstName">Nombre</label>
-					<input type="text" required id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="Nombre" required>
+					<input type="text" id="firstName" name="firstName" class="form-control" data-ng-model="credentials.firstName" placeholder="Nombre" required>
 					<div ng-show="userForm.firstName.$dirty">
 						<div ng-show="userForm.firstName.$error.required" class="text-color-danger">
 							Nombre es obligatorio.
@@ -74,6 +74,84 @@
 					</div>
 				</div>
 			</div>
+
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="dateBirth">Fecha de nacimiento</label>
+					<p class="input-group">
+						<input type="date" class="form-control" datepicker-popup id="birthDate" name="birthDate" data-ng-model="credentials.birthDate" is-open="opened" show-button-bar="false" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"  />
+						<span class="input-group-btn">
+							<button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+						</span>
+					</p>
+					<div ng-show="userForm.birthDate.$dirty">
+						<div ng-show="userForm.birthDate.$error.required" class="text-color-danger">
+							Fecha de nacimiento es obligatorio.
+						</div>
+					</div>
+				</div>
+
+				<div class="col-md-6 form-group">
+					<label for="gender">Género</label>
+					<p class="input-group">
+						<label class="radio-inline">
+  							<input type="radio" data-ng-model="credentials.gender" value="0"> Femenino
+						</label>
+						<label class="radio-inline">
+  							<input type="radio" data-ng-model="credentials.gender" value="1"> Masculino
+						</label>
+					</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6 form-group">
+					<label for="currency">Moneda</label>
+					<select class="form-control" name="currency" data-ng-model="credentials.currency" required >
+						<option value="" >Moneda</option>
+						<option value="0" >Euro (€)</option>
+						<option value="1">Dollar ($)</option>
+						<option value="2">Libra (£)</option>
+					</select>
+					<div ng-show="userForm.currency.$dirty">
+						<div ng-show="userForm.currency.$error.required" class="text-color-danger">
+							Moneda es obligatorio.
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-12 form-group">
+					<section >
+						<div class="row">
+
+							<div class="col-md-6 form-group">
+								<label for="county">Provincia</label>
+								<input id="county" type="text" name="county" ng-model="credentials.county" placeholder="Provincia" typeahead="data.literal for data in counties | filter:$viewValue | limitTo:8" class="form-control" ng-blur="validateCounty()" required>
+								<div ng-show="userForm.county.$dirty">
+									<div ng-show="userForm.county.$error.required" class="text-color-danger">
+										Provincia es obligatorio.
+									</div>
+								</div>
+							</div>
+							
+
+							<div class="col-md-6 form-group">
+								<label for="population">Población</label>
+								<input id="population" type="text" name="population" ng-model="credentials.population" placeholder="Población" typeahead="data.literal for data in populations | filter:$viewValue | limitTo:8" class="form-control" ng-blur="validatePopulation()" required>
+								<div ng-show="userForm.population.$dirty">
+									<div ng-show="userForm.population.$error.required" class="text-color-danger">
+										Población es obligatorio.
+									</div>
+								</div>
+							</div>
+							
+						</div>
+					</section>
+				</div>
+			</div>
+			
 
 			<div data-ng-show="error" class="text-color-danger">
 				<strong data-ng-bind="error"></strong>

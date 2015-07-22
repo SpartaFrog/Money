@@ -1,0 +1,26 @@
+
+<section >
+	<div class="row">
+
+		<div class="col-md-6 form-group">
+			<label for="county">Provincia</label>
+			<select id="county" class="form-control" ng-model="county" ng-options="data.literal for data in counties track by data.code">
+      			<option value="">Escoge una provincia</option>
+   			</select>
+		</div>
+
+		<div class="col-md-6 form-group">
+			<label for="population">Población</label>
+			<select class="form-control" data-ng-model="credentials.population">
+				<option value="0" selected>Madrid</option>
+				<option value="1">Alpedrete</option>
+				
+				<option value="2">Parla</option>
+			</select>
+		</div>
+		<!-- <angucomplete id="{{countryId}}" selectedObject="selectedCounty" titleField="literal" searchfields="literal" localdata="counties" placeholder="{{countyLabel}}" minlength="1" inputclass="form-control" pause="0"></angucomplete> -->
+	</div>
+</section>
+
+
+
