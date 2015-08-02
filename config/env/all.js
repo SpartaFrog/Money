@@ -13,8 +13,7 @@ module.exports = {
 	assets: {
 		lib: {
 			css: [
-				'public/lib/bootstrap/dist/css/bootstrap.css',
-				'public/lib/angucomplete/angucomplete.css'
+				'public/lib/bootstrap/dist/css/bootstrap.css'
 			],
 			js: [
 				'public/lib/angular/angular.js',
@@ -28,8 +27,7 @@ module.exports = {
 				'public/lib/angular-ui-utils/ui-utils.js',
 				'public/lib/angular-bootstrap/ui-bootstrap-tpls.js',
 				'public/lib/moment/moment.js',
-				'public/lib/angular-moment/angular-moment.js',
-				'public/lib/angucomplete/angucomplete.js'
+				'public/lib/angular-moment/angular-moment.js'
 			]
 		},
 		css: [

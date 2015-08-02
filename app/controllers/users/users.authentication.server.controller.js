@@ -14,6 +14,7 @@ var _ = require('lodash'),
  * Signup
  */
 exports.signup = function(req, res) {
+	
 	// For security measurement we remove the roles from the req.body object
 	delete req.body.roles;
 
@@ -25,8 +26,7 @@ exports.signup = function(req, res) {
 	user.provider = 'local';
 	user.displayName = user.firstName + ' ' + user.lastName;
 
-	// console.log(emailHandler);
-	
+	// Send welcome mail
 	emailHandler.sendMail(user.displayName, user.email, 'Bienvenido a Sparta Money', 'Cool!');
 	
 	// Then save the user 

@@ -28,13 +28,13 @@ var UserSchema = new Schema({
 	firstName: {
 		type: String,
 		trim: true,
-		default: '',
+		required: 'Please fill in your first name',
 		validate: [validateLocalStrategyProperty, 'Please fill in your first name']
 	},
 	lastName: {
 		type: String,
 		trim: true,
-		default: '',
+		required: 'Please fill in your last name',
 		validate: [validateLocalStrategyProperty, 'Please fill in your last name']
 	},
 	displayName: {
@@ -44,14 +44,15 @@ var UserSchema = new Schema({
 	email: {
 		type: String,
 		trim: true,
-		default: '',
+		unique: 'Please use another email address.',
+		required: 'Please fill in a email',
 		validate: [validateLocalStrategyProperty, 'Please fill in your email'],
 		match: [/.+\@.+\..+/, 'Please fill a valid email address']
 	},
 	username: {
 		displayName: 'Nombre de usuario',
 		type: String,
-		unique: 'testing error message',
+		unique: 'Please use another username',
 		required: 'Please fill in a username',
 		trim: true
 	},
@@ -85,7 +86,28 @@ var UserSchema = new Schema({
 	},
 	birthDate: {
 		type: Date,
-		required: 'BirthDate is required'
+		required: 'Please fill in your birth date'
+	},
+	gender: {
+		type: Boolean,
+		default: false
+	},
+	currency: {
+		type: [{
+			type: String,
+			enum: ['euro', 'dollar', 'pound']
+		}],
+		default: ['euro']
+	},
+	county: {
+		type: String,
+		trim: true,
+		required: 'Please select your county'
+	},
+	population: {
+		type: String,
+		trim: true,
+		required: 'Please select your population'
 	},
 	/* For reset password */
 	resetPasswordToken: {

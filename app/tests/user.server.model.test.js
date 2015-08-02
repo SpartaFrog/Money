@@ -25,7 +25,9 @@ describe('User Model Unit Tests:', function() {
 			username: 'username',
 			password: 'password',
 			provider: 'local',
-			birthDate: new Date()
+			birthDate: new Date(),
+			county: 'Madrid',
+			population: 'Alpedrete'
 		});
 		user2 = new User({
 			firstName: 'Full',
@@ -35,7 +37,9 @@ describe('User Model Unit Tests:', function() {
 			username: 'username',
 			password: 'password',
 			provider: 'local',
-			birthDate: new Date()
+			birthDate: new Date(),
+			county: 'Madrid',
+			population: 'Alpedrete'
 		});
 
 		done();
@@ -68,6 +72,63 @@ describe('User Model Unit Tests:', function() {
 				done();
 			});
 		});
+
+		it('should be able to show an error when try to save without last name', function(done) {
+			user.lastName = '';
+			return user.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
+		it('should be able to show an error when try to save without email', function(done) {
+			user.email = '';
+			return user.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
+		it('should be able to show an error when try to save without user name', function(done) {
+			user.username = '';
+			return user.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
+		it('should be able to show an error when try to save without birthDate', function(done) {
+			user.birthDate = '';
+			return user.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
+		it('should be able to show an error when try to save without county', function(done) {
+			user.county = '';
+			return user.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
+		it('should be able to show an error when try to save without population', function(done) {
+			user.population = '';
+			return user.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
+		it('should be able to show an error when try to save with no valid currency', function(done) {
+			user.currency = ['error'];
+			return user.save(function(err) {
+				should.exist(err);
+				done();
+			});
+		});
+
 	});
 
 	after(function(done) {

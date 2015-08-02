@@ -109,9 +109,9 @@
 					<label for="currency">Moneda</label>
 					<select class="form-control" name="currency" data-ng-model="credentials.currency" required >
 						<option value="" >Moneda</option>
-						<option value="0" >Euro (€)</option>
-						<option value="1">Dollar ($)</option>
-						<option value="2">Libra (£)</option>
+						<option value="euro" >Euro (€)</option>
+						<option value="dollar">Dollar ($)</option>
+						<option value="pound">Libra (£)</option>
 					</select>
 					<div ng-show="userForm.currency.$dirty">
 						<div ng-show="userForm.currency.$error.required" class="text-color-danger">
