@@ -19,12 +19,12 @@ angular.module('envelopes').controller('EnvelopesController', ['$scope', 'Authen
 		];
 
 
-		$scope.incomes = [
-
-		];
+		$scope.incomes = [];
+		$scope.expenses = [];
 
 		$scope.templates = [
 			{name:'addIncome', bodyContentUrl: '/modules/incomes/views/income.client.view.html', headerText:'Nuevo Ingreso', actionButtonText: 'Añadir' },
+			{name:'addExpense', bodyContentUrl: '/modules/envelopes/views/expense.client.view.html', headerText:'Nuevo Gasto', actionButtonText: 'Añadir' },
 			{name:'moveMoney', bodyContentUrl: '/modules/envelopes/views/move-money.client.view.html', headerText:'Mover dinero a', actionButtonText: 'Mover' }
 		];
 
@@ -66,6 +66,32 @@ angular.module('envelopes').controller('EnvelopesController', ['$scope', 'Authen
 				$scope.envelopes[0].balance = amount;
 
 				$scope.incomes.push(result);
+	        });
+		};
+
+		$scope.addExpense = function (){
+			var template = $scope.getTemplate('addExpense');
+
+			template.envelopes = [];
+			$scope.envelopes.forEach(function (value, index){
+				if(value.type === 'Savings' || value.type === 'Continuous'){
+					template.envelopes.push(value);
+				}
+			});
+
+			template.model = {
+				date: new Date(),
+				envelopeTo: template.envelopes[0],
+			};
+
+			ModalService.showModal({}, template).then(function (result) {
+				var envelopeTo = $scope.getEnvelope(result.envelopeTo.id);
+
+				if(!envelopeTo) { return; }
+
+				envelopeTo.balance = Number(envelopeTo.balance - result.amount).toFixed(2)
+
+				$scope.expenses.push(result);
 	        });
 		};
 

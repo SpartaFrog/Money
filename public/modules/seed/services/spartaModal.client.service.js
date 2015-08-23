@@ -15,7 +15,7 @@ angular.module('seed').service('ModalService', ['$modal',
             actionButtonText: 'Continuar',
             headerText: 'Confirmación',
             bodyContentUrl: '',
-            validate: function() { return true; }
+            validate: function() { return {isValid:true}; }
         };
 
         this.showModal = function (customModalDefaults, customModalOptions) {
