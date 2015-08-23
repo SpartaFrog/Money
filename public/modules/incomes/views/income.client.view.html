@@ -1,0 +1,50 @@
+<form name="modalOptions.form" ng-submit="" class="form-horizontal" novalidate>
+	<fieldset>
+		
+		<div class="form-group">
+			<label for="description" class="control-label col-md-2">Concepto</label>		
+			<div class="col-md-10">
+				<input type="text" id="description" name="description" class="form-control" data-ng-model="modalOptions.model.description" placeholder="Concepto" required/>
+				<div ng-show="modalOptions.form.description.$dirty">
+					<div ng-show="modalOptions.form.description.$error.required" class="text-color-danger">
+						Concepto es obligatorio.
+					</div>
+				</div>		
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="amount" class="control-label col-md-2">Cantidad</label>		
+			<div class="col-md-10">
+				<input type="number" id="amount" name="amount" class="form-control" data-ng-model="modalOptions.model.amount" placeholder="Cantidad" required/>
+				<div ng-show="modalOptions.form.amount.$dirty">
+					<div ng-show="modalOptions.form.amount.$error.required" class="text-color-danger">
+						Cantidad es obligatorio.
+					</div>
+					<div ng-show="modalOptions.form.amount.$error.number" class="text-color-danger">
+						Cantidad debe ser un número.
+					</div>
+				</div>		
+			</div>
+		</div>
+ 	
+		<div class="form-group">
+			<label for="date" class="control-label col-md-2">Fecha</label>		
+			<div class="col-md-10">
+				<p class="input-group">
+					<input type="date" class="form-control" datepicker-popup id="date" name="date" data-ng-model="modalOptions.model.date" is-open="opened" show-button-bar="false" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true"  />
+					<span class="input-group-btn">
+						<button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+					</span>
+				</p>
+				<div ng-show="modalOptions.form.date.$dirty">
+					<div ng-show="modalOptions.form.date.$error.required" class="text-color-danger">
+						Fecha es obligatorio.
+					</div>
+				</div>		
+			</div>
+		</div>
+		
+	</fieldset>
+
+</form>

@@ -1,0 +1,15 @@
+<div class="modal-header">
+	<h4 class="modal-title">{{modalOptions.headerText}}</h4>
+</div>
+<div class="modal-body">
+	<div class="alert alert-danger" ng-show="modalOptions.errorMessage.length > 0">
+		<p>{{modalOptions.errorMessage}}</p>
+	</div>
+  	<div data-ng-include="modalOptions.bodyContentUrl"></div>
+</div>
+<div class="modal-footer">
+	<button type="button" class="btn btn-default" 
+	      	data-ng-click="modalOptions.close()">{{modalOptions.closeButtonText}}</button>
+	<button class="btn btn-primary" data-ng-disabled="modalOptions.form.$invalid"
+    		data-ng-click="modalOptions.ok(modalOptions.model);">{{modalOptions.actionButtonText}}</button>
+</div>

@@ -7,12 +7,12 @@ html, body {
 }
 
 .content {
-	margin-top: 50px;
+	margin-top: 70px;
 }
 
 .container-header{
 	width: auto;
-	padding: 0 50px;
+	padding: 0;
 }
 
 /*** Titles and texts
@@ -21,8 +21,9 @@ html, body {
 	/* Structure */
 	border: none;
 	padding-bottom: 0;
+	margin-top: 20px;
 
-	/* Colors */
+	/* Themes */
 	color: #795548;
 }
 
@@ -31,7 +32,7 @@ html, body {
 	font-weight: 400;
 	font-size: 32px;
 
-	/* Colors */
+	/* Themes */
 	color: #795548;
 }
 
@@ -39,45 +40,37 @@ html, body {
 	color: #db4437;
 }
 
-
 /*** Navigation Bar 
 ************************************************/
 .navbar{
 	/* Structure */
-	min-height: 64px;
+	min-height: 50px;
   	box-shadow: 0 2px 5px rgba(0,0,0,0.26);
 
-	/* Colors */
+	/* Themes */
 	background: #795548;
 }
 
 .navbar-brand,
-.navbar-brand:hover,
-.navbar-brand:active,
-.navbar-brand:focus{
-	/* Structure */
-	padding: 0;
-	line-height: 64px;
-	font-size: 24px;
-
-	/* Colors */
-	color: #ffffff;
-}
-
 .navbar-nav > li > a{
 	/* Structure */
 	padding: 0 15px;
-	line-height: 64px;
+	line-height: 50px;
 	font-size: 18px;
+	margin:0;
 
-	/* Colors */
+	/* Themes */
 	color: #ffffff;
 }
 
+.navbar-brand:hover,
+.navbar-brand:active,
+.navbar-brand:focus,
 .navbar-nav > li > a:hover,
 .navbar-nav > li > a:active,
 .navbar-nav > li > a:focus{
-	/* Colors */
+	/* Themes */
+	color: #ffffff;
 	background-color: #8D6E63;
 }
 
@@ -114,7 +107,7 @@ label{
 }
 
 .form-control:focus, .form-control:active, .form-control.active{
-	/* Colors */
+	/* Themes */
 	border-bottom-color: #0091EA;
 }
 
@@ -156,21 +149,86 @@ label{
   	box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
 }
 
+.btn-link{
+	box-shadow: none;
+}
+
 .btn-primary{
 	background-image: none;
 
-	/* Colors */
+	/* Themes */
 	background-color: #0091EA;
 }
 
+/*** Card
+***********************************************/
+.card{
+	padding-left: 0;
+}
+
+.card-header{
+	padding: 0 12px;
+}
+
+.card-header-title{
+	line-height: 1.5em;
+}
+
+.card-header-number{
+	font-size: 1.5em;
+}
+
+.card-content{
+	margin: 15px;
+}
+
+.card .progress{
+	border-radius: 0;
+	height: 5px;
+	margin-bottom: 0;
+}
+
+.card .progress-bar{
+	background: #795548;
+}
+
+.card-progress-info{
+	margin: 3px 15px 15px;
+}
+
+/*** Modal
+***********************************************/
+.modal .modal-content{
+	border-radius: 4px;
+}
+
+.modal .modal-header,
+.modal .modal-footer{
+	border: 0;
+}
+
+.modal .modal-body{
+	padding-top: 0;
+}
 
 
-
-
+/***
+****************************************************/
 
 .undecorated-link:hover {
 	text-decoration: none;
 }
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
 	display: none !important;
+}
+
+
+@media (min-width: 768px){
+
+	/*** Navigation Bar 
+	************************************************/
+	.navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
+	     margin-left: 0; 
+	}
+	
 }

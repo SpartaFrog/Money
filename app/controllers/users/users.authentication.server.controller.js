@@ -63,8 +63,6 @@ exports.signin = function(req, res, next) {
 		users.forEach(function(user) {
 			userMap[user._id] = user;
 		});
-
-		console.log(userMap); 
 	});
 
 	passport.authenticate('local', function(err, user, info) {

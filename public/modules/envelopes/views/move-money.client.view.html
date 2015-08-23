@@ -1,0 +1,28 @@
+<form name="modalOptions.form" ng-submit="" class="form-horizontal" novalidate>
+	<fieldset>
+		
+		<div class="form-group">
+			<label for="envelopeTo" class="control-label col-md-2">Sobre</label>		
+			<div class="col-md-10">
+				<select ng-model="modalOptions.model.envelopeTo" class="form-control" ng-options="envelope.name for envelope in modalOptions.envelopes"></select>
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label for="amount" class="control-label col-md-2">Cantidad</label>		
+			<div class="col-md-10">
+				<input type="number" id="amount" name="amount" class="form-control" data-ng-model="modalOptions.model.amount" placeholder="Cantidad" required/>
+				<div ng-show="modalOptions.form.amount.$dirty">
+					<div ng-show="modalOptions.form.amount.$error.required" class="text-color-danger">
+						Cantidad es obligatorio.
+					</div>
+					<div ng-show="modalOptions.form.amount.$error.number" class="text-color-danger">
+						Cantidad debe ser un número.
+					</div>
+				</div>		
+			</div>
+		</div>
+		
+	</fieldset>
+
+</form>
