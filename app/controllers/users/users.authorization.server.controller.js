@@ -5,7 +5,8 @@
  */
 var _ = require('lodash'),
 	mongoose = require('mongoose'),
-	User = mongoose.model('User');
+	User = mongoose.model('User'),
+	errorHandler = require('../../../app/controllers/errors.server.controller');
 
 /**
  * User middleware
@@ -26,9 +27,7 @@ exports.userByID = function(req, res, next, id) {
  */
 exports.requiresLogin = function(req, res, next) {
 	if (!req.isAuthenticated()) {
-		return res.status(401).send({
-			message: 'User is not logged in'
-		});
+		return res.status(401).send(errorHandler.getError(401));
 	}
 
 	next();
@@ -45,9 +44,7 @@ exports.hasAuthorization = function(roles) {
 			if (_.intersection(req.user.roles, roles).length) {
 				return next();
 			} else {
-				return res.status(403).send({
-					message: 'User is not authorized'
-				});
+				return res.status(403).send(errorHandler.getError(403));
 			}
 		});
 	};

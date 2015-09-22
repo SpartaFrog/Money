@@ -89,7 +89,7 @@ angular.module('envelopes').controller('EnvelopesController', ['$scope', 'Authen
 
 				if(!envelopeTo) { return; }
 
-				envelopeTo.balance = Number(envelopeTo.balance - result.amount).toFixed(2)
+				envelopeTo.balance = Number(envelopeTo.balance - result.amount).toFixed(2);
 
 				$scope.expenses.push(result);
 	        });

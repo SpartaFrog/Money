@@ -54,3 +54,42 @@ exports.getErrorMessage = function(err) {
 
 	return message;
 };
+
+/**
+ * Get the error object from error code
+ */
+exports.getError = function(errCode, errorMessage, errorData) {
+	var error = {
+		code: 500,
+		message: 'Se ha producido un error en el servidor.',
+		name: 'Internal Server Error',
+		data: errorData || {}
+	};
+
+	if (errCode) {
+		switch (errCode) {
+			case 400:
+				error.code = 400;
+				error.message = errorMessage || 'Los datos enviados no tienen un formato válido.';
+				error.name = 'Bad Request';
+				break;
+			case 401:
+				error.code = 401;
+				error.message = 'Inicia sesión para usar este servicio.';
+				error.name = 'Unathorized';
+				break;
+			case 403:
+				error.code = 403;
+				error.message ='Se ha rechazado su petición por falta de permisos.';
+				error.name = 'Forbidden';
+				break;
+			case 409:
+				error.code = 409;
+				error.message ='Los datos enviados han producido un conflicto al lanzar el proceso.';
+				error.name = 'Conflict';
+				break;
+		}
+	}
+
+	return error;
+};
